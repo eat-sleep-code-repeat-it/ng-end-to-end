@@ -15,6 +15,9 @@ sudo dpkg -i google-chrome-stable_current_amd64.deb
 google-chrome --version
 
 
+ng e2e -c smoke
+ng e2e -c regression
+
 # run within wsl
 ng serve
 protractor --capabilities.chromeOptions.args=--headless --capabilities.chromeOptions.args=--no-sandbox protractor.conf.js
@@ -27,7 +30,14 @@ https://github.com/CarmenPopoviciu/protractor-styleguide
 
 https://livebook.manning.com/book/testing-angular-applications/chapter-10/
 https://github.com/testing-angular-applications/testing-angular-applications/tree/master/chapter10
+
 ```
+
+## understanding-test-configurations-in-angular-
+
+https://blog.bitsrc.io/understanding-test-configurations-in-angular-2f8b3d1fbd00
+https://github.com/bbachi/angular-configuration-example
+
 
 ## Up and Running With Headless Chrome
 
