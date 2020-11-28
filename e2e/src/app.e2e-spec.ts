@@ -1,5 +1,6 @@
 import { AppPage } from './app.po';
 import { browser, logging } from 'protractor';
+import { createWriteStream } from 'fs';
 
 describe('workspace-project App', () => {
   let page: AppPage;
@@ -19,5 +20,35 @@ describe('workspace-project App', () => {
     expect(logs).not.toContain(jasmine.objectContaining({
       level: logging.Level.SEVERE,
     } as logging.Entry));
+
+    browser.manage().logs().get('performance')
+    .then((browserLogs) => {
+      expect(browserLogs).not.toBeNull();
+      browserLogs.forEach((browserLog) => {
+        let message = JSON.parse(browserLog.message).message;
+        if (message.method == 'Network.responseReceived'){
+          if (message.params.response.timing) {
+            let status = message.params.response.status;
+            let url = message.params.response.url;
+            console.log('status=' + status + ' ' + url);
+          }
+        }
+      });
+    });
+  });
+
+
+  describe('Take screenshot', function() {
+    // browser.ignoreSynchronization = true; // for non-angular websites
+    it('get Cookie test in Protractor', function() {
+      page.navigateTo();
+
+      // take screenshot
+      browser.takeScreenshot().then(function (png) {
+        var stream = createWriteStream("exception.png");
+        stream.write(new Buffer(png, 'base64'));
+        stream.end();
+      });
+    });
   });
 });

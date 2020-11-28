@@ -13,16 +13,26 @@ sudo dpkg -i google-chrome-stable_current_amd64.deb
 sudo apt-get -f install
 sudo dpkg -i google-chrome-stable_current_amd64.deb
 google-chrome --version
+
+
+# run within wsl
+ng serve
+protractor --capabilities.chromeOptions.args=--headless --capabilities.chromeOptions.args=--no-sandbox protractor.conf.js
+
+
+https://coryrylan.com/blog/introduction-to-e2e-testing-with-the-angular-cli-and-protractor
+
+https://github.com/CarmenPopoviciu/protractor-styleguide
+
+
+https://livebook.manning.com/book/testing-angular-applications/chapter-10/
+https://github.com/testing-angular-applications/testing-angular-applications/tree/master/chapter10
 ```
 
-## Running unit tests
+## Up and Running With Headless Chrome
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+https://blog.bugreplay.com/2017/10/up-and-running-with-headless-chrome.html
 
-## Running end-to-end tests
+## What’s Protractor?
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+From the Protractor site: “Protractor is an end-to-end test framework for Angular and AngularJS applications. Protractor runs tests against your application running in a real browser, interacting with it as a user would.”
