@@ -22,21 +22,19 @@ ng e2e -c regression
 ng serve
 protractor --capabilities.chromeOptions.args=--headless --capabilities.chromeOptions.args=--no-sandbox protractor.conf.js
 
+```
 
-https://coryrylan.com/blog/introduction-to-e2e-testing-with-the-angular-cli-and-protractor
+## Protractor Style Guide
 
 https://github.com/CarmenPopoviciu/protractor-styleguide
 
-
-https://livebook.manning.com/book/testing-angular-applications/chapter-10/
-https://github.com/testing-angular-applications/testing-angular-applications/tree/master/chapter10
-
-```
-
 ## understanding-test-configurations-in-angular-
 
-https://blog.bitsrc.io/understanding-test-configurations-in-angular-2f8b3d1fbd00
-https://github.com/bbachi/angular-configuration-example
+- https://blog.bitsrc.io/understanding-test-configurations-in-angular-2f8b3d1fbd00
+- https://github.com/bbachi/angular-configuration-example
+- https://coryrylan.com/blog/introduction-to-e2e-testing-with-the-angular-cli-and-protractor
+- https://livebook.manning.com/book/testing-angular-applications/chapter-10/
+- https://github.com/testing-angular-applications/testing-angular-applications/tree/master/chapter10
 
 
 ## Up and Running With Headless Chrome
