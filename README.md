@@ -26,8 +26,11 @@ protractor --capabilities.chromeOptions.args=--headless --capabilities.chromeOpt
 
 ## Protractor Style Guide
 
-https://github.com/CarmenPopoviciu/protractor-styleguide
+- https://github.com/CarmenPopoviciu/protractor-styleguide
 
+## Jasmine: Understanding the Difference between beforeAll and beforeEach
+
+- http://breazeal.com/blog/jasmineBefore.html#:~:text=The%20beforeAll%20function%20executes%20once,contained%20inside%20any%20inner%20describe%20.
 ## understanding-test-configurations-in-angular-
 
 - https://carrieforde.com/angular-testing-with-protractor-cucumber/
