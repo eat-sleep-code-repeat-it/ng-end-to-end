@@ -14,27 +14,22 @@ describe('workspace-project App', () => {
     expect(await page.getTitleText()).toEqual('ng-end-to-end app is running!');
   });
 
+  it('should display first number imput', async () => {
+    await page.navigateTo();
+    expect(await page.getTitleText()).toEqual('ng-end-to-end app is running!');
+  });
+
+  it('should display second number imput', async () => {
+    await page.navigateTo();
+    expect(await page.getTitleText()).toEqual('ng-end-to-end app is running!');
+  });
+
   afterEach(async () => {
     // Assert that there are no errors emitted from the browser
     const logs = await browser.manage().logs().get(logging.Type.BROWSER);
     expect(logs).not.toContain(jasmine.objectContaining({
       level: logging.Level.SEVERE,
     } as logging.Entry));
-
-    browser.manage().logs().get('performance')
-    .then((browserLogs) => {
-      expect(browserLogs).not.toBeNull();
-      browserLogs.forEach((browserLog) => {
-        let message = JSON.parse(browserLog.message).message;
-        if (message.method == 'Network.responseReceived'){
-          if (message.params.response.timing) {
-            let status = message.params.response.status;
-            let url = message.params.response.url;
-            console.log('status=' + status + ' ' + url);
-          }
-        }
-      });
-    });
   });
 
 

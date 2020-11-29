@@ -132,5 +132,8 @@
       }
     }
   },
-  "defaultProject": "ng-end-to-end"
+  "defaultProject": "ng-end-to-end",
+  "cli": {
+    "analytics": false
+  }
 }

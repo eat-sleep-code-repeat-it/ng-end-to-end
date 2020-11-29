@@ -30,6 +30,7 @@ https://github.com/CarmenPopoviciu/protractor-styleguide
 
 ## understanding-test-configurations-in-angular-
 
+- https://carrieforde.com/angular-testing-with-protractor-cucumber/
 - https://blog.bitsrc.io/understanding-test-configurations-in-angular-2f8b3d1fbd00
 - https://github.com/bbachi/angular-configuration-example
 - https://coryrylan.com/blog/introduction-to-e2e-testing-with-the-angular-cli-and-protractor
