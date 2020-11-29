@@ -1,8 +1,9 @@
 import { AppPage } from './app.po';
-import { browser, logging } from 'protractor';
+import { browser, logging, element, by } from 'protractor';
 import { createWriteStream } from 'fs';
+import { CalculatorPage } from './smoke/calculator.po';
 
-describe('workspace-project App', () => {
+describe('App', () => {
   let page: AppPage;
 
   beforeEach(() => {
@@ -14,14 +15,26 @@ describe('workspace-project App', () => {
     expect(await page.getTitleText()).toEqual('ng-end-to-end app is running!');
   });
 
-  it('should display first number imput', async () => {
+  it('should display calculator link', async () => {
     await page.navigateTo();
-    expect(await page.getTitleText()).toEqual('ng-end-to-end app is running!');
+    expect(await page.calculatorLink.isDisplayed()).toEqual(true);
+    expect(await page.dashboardLink.isDisplayed()).toEqual(true);
   });
 
-  it('should display second number imput', async () => {
+  it('should goto calculator(method-1)', async () => {
     await page.navigateTo();
-    expect(await page.getTitleText()).toEqual('ng-end-to-end app is running!');
+    await page.calculatorLink.click();
+    expect(await element(by.css('app-root app-calculator')).isDisplayed()).toBe(true);
+  });
+
+  it('should goto calculator(method-2)', async () => {
+    const calculator = await page.navigateToCalculator();
+    expect(await calculator.isDisplayed()).toBe(true);
+  });
+
+  it('should goto dashboard', async () => {
+    const dashboard = await page.navigateToDashboard();
+    expect(await dashboard.isDisplayed()).toBe(true);
   });
 
   afterEach(async () => {

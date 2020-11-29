@@ -21,6 +21,13 @@ export class CalculatorPage {
         this.addButton = element(by.id('addButton'));
         this.sumResult =  element(by.id('sumResult'));
         this.numberSelection = element(by.id('numberSelection'));
+
+        browser.getCurrentUrl().then(value => {
+            console.log('value=', value);
+        });
+    }
+    async isDisplayed(): Promise<boolean> {
+        return await element(by.css('app-root app-calculator')).isDisplayed();
     }
 
     /*
