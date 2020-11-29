@@ -39,7 +39,8 @@ protractor --capabilities.chromeOptions.args=--headless --capabilities.chromeOpt
 - https://coryrylan.com/blog/introduction-to-e2e-testing-with-the-angular-cli-and-protractor
 - https://livebook.manning.com/book/testing-angular-applications/chapter-10/
 - https://github.com/testing-angular-applications/testing-angular-applications/tree/master/chapter10
-
+- https://stackoverflow.com/questions/tagged/protractor?sort=votes&pageSize=20
+- https://github.com/SeleniumHQ/selenium/wiki/PageObjects
 
 ## Up and Running With Headless Chrome
 

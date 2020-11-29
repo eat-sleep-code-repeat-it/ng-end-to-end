@@ -17,52 +17,60 @@ describe('test Caculator', () => {
     // await page.navigateTo();
   });
 
-  it('should display calculator', async () => {    
-    expect(await page.getTitleText()).toEqual('calculator');
-  });
+  describe('should display', ()=> {
+    it('calculator', async () => {    
+      expect(await page.getTitleText()).toEqual('calculator');
+    });
+  
+    it('first number input', async () => {
+      // check the returned value is the same as true
+      expect(await page.firstNumber.isDisplayed()).toBe(true);
+  
+      // checks if the returned value is true
+      // expect(await page.firstNumber.isDisplayed()).toBeTrue();
+  
+      // check if the value, when cast to a boolean, will be a truthy value
+      expect(await page.firstNumber.isDisplayed()).toBeTruthy();
+    });
+  
+    it('second number input', async () => {    
+      expect(await page.secondNumber.isDisplayed()).toBeTruthy();
+    });
+  
+    it('add button', async () => {    
+      expect(await page.addButton.isDisplayed()).toBeTruthy();
+    });
+  
+    it('selection', async () => {    
+      expect(await page.numberSelection.isDisplayed()).toBe(true);
+    });
+  })  
 
-  it('should display first number input', async () => {
-    // check the returned value is the same as true
-    expect(await page.firstNumber.isDisplayed()).toBe(true);
-
-    // checks if the returned value is true
-    // expect(await page.firstNumber.isDisplayed()).toBeTrue();
-
-    // check if the value, when cast to a boolean, will be a truthy value
-    expect(await page.firstNumber.isDisplayed()).toBeTruthy();
-  });
-
-  it('should display second number input', async () => {    
-    expect(await page.secondNumber.isDisplayed()).toBeTruthy();
-  });
-
-  it('should display add button', async () => {    
-    expect(await page.addButton.isDisplayed()).toBeTruthy();
-  });
-
-  it('should display selection', async () => {    
-    expect(await page.numberSelection.isDisplayed()).toBe(true);
-  });
-
-  it('should read first number', async () => {  
-    page.firstNumber.clear();  
-    page.firstNumber.sendKeys(10);
-    expect(await page.firstNumber.getAttribute('value')).toEqual('10');  
-  });
-
-  it('should read second number', async () => {   
-    page.secondNumber.clear(); 
-    page.secondNumber.sendKeys(20);
-    expect(await page.secondNumber.getAttribute('value')).toEqual('20');  
-  });
-
-  it('should add first and second number', async () => {
-    page.setValue(10, 20);
-
-    page.addButton.click();
-    
-    expect(await page.sumResult.getText()).toEqual('30');
-  });
+  describe('calculator', ()=>{
+    it('should read first number', async () => {  
+      /*
+      page.firstNumber.clear();  
+      page.firstNumber.sendKeys(10);
+      
+      */ 
+      await page.setFirstValue(10);
+      expect(await page.firstNumber.getAttribute('value')).toEqual('10');
+    });
+  
+    it('should read second number', async () => {   
+      /*
+      page.secondNumber.clear(); 
+      page.secondNumber.sendKeys(20);      
+      */
+      await page.setSecondValue(20);
+      expect(await page.secondNumber.getAttribute('value')).toEqual('20');  
+    });
+  
+    it('should add first and second number', async () => {
+      page.addValues(10, 20);      
+      expect(await page.sumResult.getText()).toEqual('30');
+    });
+  })  
 
   describe('test select', ()=> {
     it('option count ', async () => {   

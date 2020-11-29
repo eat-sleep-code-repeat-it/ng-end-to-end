@@ -1,4 +1,4 @@
-import { browser, by, element, ElementFinder } from 'protractor';
+import { browser, by, element, ElementFinder, promise } from 'protractor';
 
 /*
     POM pattern
@@ -36,12 +36,28 @@ export class CalculatorPage {
     async getTitleText(): Promise<string> {
         return this.title.getText();
     }
-
-    async setValue(firstNum: number, secondNum: number) {
+    async setFirstValue(firstNum: number) {
         this.firstNumber.clear();        
         this.firstNumber.sendKeys(firstNum);
-
+    }
+    async setSecondValue(secondNum: number) {
         this.secondNumber.clear();
         this.secondNumber.sendKeys(secondNum);
     }
+    async addValues(firstNum: number, secondNum: number) {
+        this.setFirstValue(firstNum);
+        this.setSecondValue(secondNum);
+        this.addButton.click();
+    }
+    /*
+    async getFirstValue(): Promise<string> {
+        return this.firstNumber.getAttribute('value')
+    }
+    async getSecondValue(): Promise<string> {
+        return this.secondNumber.getAttribute('value')
+    }
+    async getSumResult(): Promise<string> {
+        return this.sumResult.getAttribute('value')
+    }
+    */
 }
