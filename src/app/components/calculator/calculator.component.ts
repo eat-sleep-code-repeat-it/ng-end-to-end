@@ -6,12 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./calculator.component.css']
 })
 export class CalculatorComponent implements OnInit {
+  numItems = [10, 20, 30, 40];
   a = 0;
   b = 0;
   sum = 0;
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.numItems);
   }
 
   add() {

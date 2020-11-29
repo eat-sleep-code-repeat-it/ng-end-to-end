@@ -13,12 +13,14 @@ export class CalculatorPage {
     secondNumber: ElementFinder;
     addButton: ElementFinder;
     sumResult: ElementFinder;
+    numberSelection: ElementFinder;
     constructor() {
         this.title = element(by.css('app-root app-calculator p'));
         this.firstNumber = element(by.id('firstNumber'));
         this.secondNumber = element(by.id('secondNumber'));
         this.addButton = element(by.id('addButton'));
         this.sumResult =  element(by.id('sumResult'));
+        this.numberSelection = element(by.id('numberSelection'));
     }
 
     /*
