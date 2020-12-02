@@ -24,9 +24,16 @@ protractor --capabilities.chromeOptions.args=--headless --capabilities.chromeOpt
 
 ```
 
-## Protractor Style Guide
+## Protractor Style Guide & cheat sheet
 
+- https://www.protractortest.org/#/style-guide
 - https://github.com/CarmenPopoviciu/protractor-styleguide
+- https://gist.github.com/javierarques/0c4c817d6c77b0877fda
+
+## POM Builder and selenium IDE
+
+- https://chrome.google.com/webstore/detail/pom-builder-%E2%80%93-auto-genera/akcejfbfkkjnghlfngighgncolfaghco?hl=en-US
+- https://chrome.google.com/webstore/detail/selenium-ide/mooikfkahbdckldjjndioackbalphokd?hl=en
 
 ## Jasmine: Understanding the Difference between beforeAll and beforeEach
 
@@ -49,3 +56,32 @@ https://blog.bugreplay.com/2017/10/up-and-running-with-headless-chrome.html
 ## What’s Protractor?
 
 From the Protractor site: “Protractor is an end-to-end test framework for Angular and AngularJS applications. Protractor runs tests against your application running in a real browser, interacting with it as a user would.”
+
+
+## resolve error: This version of ChromeDriver only supports Chrome version 74
+
+```bash
+webdriver-manager shutdown
+webdriver-manager clean
+webdriver-manager update —versions.chrome=74.0.3729.169
+webdriver-manager status
+```
+
+## run headless or inside a docker container
+
+```js
+'chromeOptions': {
+    'args': ['--no-sandbox','--headless','--window-size=1600x1000']
+}
+```
+
+## video
+
+- https://www.youtube.com/watch?v=7Urc5cSIdLg&feature=youtu.be&list=PLhW3qG5bs-L_dgIr3hiOlnNIO8NGlXQnP
+- https://www.youtube.com/watch?v=RSyDesxeXik&list=PLhW3qG5bs-L_dgIr3hiOlnNIO8NGlXQnP&index=9
+- https://www.youtube.com/watch?v=EX0SmoUfdQ4&list=PLhW3qG5bs-L_dgIr3hiOlnNIO8NGlXQnP&index=10
+
+## protractor reporter
+
+- https://www.npmjs.com/package/protractor-html-reporter-2
+- https://www.npmjs.com/package/protractor-jasmine2-screenshot-reporter
