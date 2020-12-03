@@ -12,11 +12,6 @@ var reporter = new HtmlScreenshotReporter({
 
 var HtmlReporter = require('protractor-beautiful-reporter');
 
-var HTMLReport = require('protractor-html-reporter');
-
-var jasmineReporters = require('jasmine-reporters');
-const { browser } = require('protractor');
-
 /**
  * @type { import("protractor").Config }
  */
@@ -57,12 +52,6 @@ exports.config = {
       baseDirectory: 'tmp/screenshots'
     }).getJasmine2Reporter());
 
-    jasmine.getEnv().addReporter(new jasmineReporters.JUnitXmlReporter({
-      consolidateAll: true,
-      filePrefix: 'guitest-xmloutput',
-      savePath: '.'
-    }));
-
     jasmine.getEnv().addReporter(new SpecReporter({
       spec: {
         displayStacktrace: StacktraceOption.PRETTY
@@ -74,25 +63,5 @@ exports.config = {
     return new Promise(function(resolve){
       reporter.afterLaunch(resolve.bind(this, exitCode));
     });
-  },
-  onComplete: function() {
-    var browserName, browserVersion;
-    var capsPromise = browser.getCapabilities();
-
-    capsPromise.then(function (caps) {
-       browserName = caps.get('browserName');
-       browserVersion = caps.get('version');       
-
-        const testConfig = {
-           reportTitle: 'Test Execution Report',
-           outputPath: './',
-           screenshotPath: './screenshots',
-           testBrowser: browserName,
-           browserVersion: browserVersion,
-           modifiedSuiteName: false,
-           screenshotsOnlyOnFailure: true
-       };
-       new HTMLReport().from('xmlresults.xml', testConfig);
-   });
-}
+  }  
 };
