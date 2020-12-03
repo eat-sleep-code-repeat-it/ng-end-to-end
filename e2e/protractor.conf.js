@@ -10,6 +10,8 @@ var reporter = new HtmlScreenshotReporter({
   filename: 'my-report.html'
 });
 
+var HtmlReporter = require('protractor-beautiful-reporter');
+
 /**
  * @type { import("protractor").Config }
  */
@@ -45,6 +47,11 @@ exports.config = {
       project: require('path').join(__dirname, './tsconfig.json')
     });
     jasmine.getEnv().addReporter(reporter);
+
+    jasmine.getEnv().addReporter(new HtmlReporter({
+      baseDirectory: 'tmp/screenshots'
+    }).getJasmine2Reporter());
+
     jasmine.getEnv().addReporter(new SpecReporter({
       spec: {
         displayStacktrace: StacktraceOption.PRETTY
