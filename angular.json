@@ -118,11 +118,22 @@
           "configurations": {
             "production": {
               "devServerTarget": "ng-end-to-end:serve:production"
+            },
+            "regression": {
+              "protractorConfig": "e2e/protractor-regression.conf.js",
+              "devServerTarget": "ng-end-to-end:serve"
+            },
+            "smoke": {
+              "protractorConfig": "e2e/protractor-smoke.conf.js",
+              "devServerTarget": "ng-end-to-end:serve"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "ng-end-to-end"
+  "defaultProject": "ng-end-to-end",
+  "cli": {
+    "analytics": false
+  }
 }

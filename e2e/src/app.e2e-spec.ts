@@ -1,8 +1,9 @@
 import { AppPage } from './app.po';
-import { browser, logging } from 'protractor';
+import { browser, logging, element, by } from 'protractor';
 import { createWriteStream } from 'fs';
+import { CalculatorPage } from './smoke/calculator.po';
 
-describe('workspace-project App', () => {
+describe('App', () => {
   let page: AppPage;
 
   beforeEach(() => {
@@ -14,27 +15,34 @@ describe('workspace-project App', () => {
     expect(await page.getTitleText()).toEqual('ng-end-to-end app is running!');
   });
 
+  it('should display calculator link', async () => {
+    await page.navigateTo();
+    expect(await page.calculatorLink.isDisplayed()).toEqual(true);
+    expect(await page.dashboardLink.isDisplayed()).toEqual(true);
+  });
+
+  it('should goto calculator(method-1)', async () => {
+    await page.navigateTo();
+    await page.calculatorLink.click();
+    expect(await element(by.css('app-root app-calculator')).isDisplayed()).toBe(true);
+  });
+
+  it('should goto calculator(method-2)', async () => {
+    const calculator = await page.navigateToCalculator();
+    expect(await calculator.isDisplayed()).toBe(true);
+  });
+
+  it('should goto dashboard', async () => {
+    const dashboard = await page.navigateToDashboard();
+    expect(await dashboard.isDisplayed()).toBe(true);
+  });
+
   afterEach(async () => {
     // Assert that there are no errors emitted from the browser
     const logs = await browser.manage().logs().get(logging.Type.BROWSER);
     expect(logs).not.toContain(jasmine.objectContaining({
       level: logging.Level.SEVERE,
     } as logging.Entry));
-
-    browser.manage().logs().get('performance')
-    .then((browserLogs) => {
-      expect(browserLogs).not.toBeNull();
-      browserLogs.forEach((browserLog) => {
-        let message = JSON.parse(browserLog.message).message;
-        if (message.method == 'Network.responseReceived'){
-          if (message.params.response.timing) {
-            let status = message.params.response.status;
-            let url = message.params.response.url;
-            console.log('status=' + status + ' ' + url);
-          }
-        }
-      });
-    });
   });
 
 
