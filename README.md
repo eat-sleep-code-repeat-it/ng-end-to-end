@@ -23,12 +23,18 @@ ng serve
 protractor --capabilities.chromeOptions.args=--headless --capabilities.chromeOptions.args=--no-sandbox protractor.conf.js
 
 ```
+## training
+
+- Protractor Testing In Depth https://oasisdigital.com/class/e2e-protractor
+- https://christianlydemann.com/why-i-moved-from-protractor-to-cypress/
 
 ## Protractor Style Guide & cheat sheet
 
 - https://www.protractortest.org/#/style-guide
 - https://github.com/CarmenPopoviciu/protractor-styleguide
 - https://gist.github.com/javierarques/0c4c817d6c77b0877fda
+- https://www.softwaretestinghelp.com/protractor-testing-tutorial/
+- How To Debug Protractor Tests for Selenium Test Automation: https://www.lambdatest.com/blog/how-to-debug-protractor-tests-for-selenium-test-automation/
 
 ## POM Builder and selenium IDE
 
