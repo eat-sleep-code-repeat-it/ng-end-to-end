@@ -28,6 +28,10 @@ protractor --capabilities.chromeOptions.args=--headless --capabilities.chromeOpt
 - Protractor Testing In Depth https://oasisdigital.com/class/e2e-protractor
 - https://christianlydemann.com/why-i-moved-from-protractor-to-cypress/
 
+## book
+
+- https://livebook.manning.com/book/testing-angular-applications/chapter-10/19
+
 ## Protractor Style Guide & cheat sheet
 
 - https://www.protractortest.org/#/style-guide
